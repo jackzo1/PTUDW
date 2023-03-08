@@ -26,6 +26,13 @@ namespace TatBlog.data.Contexts
             modelBuilder.ApplyConfigurationsFromAssembly(
                 typeof(CategoryMap).Assembly);
         }
+        public BlogDbContext(DbContextOptions<BlogDbContext>options) 
+        :base(options) { }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(CategoryMap).Assembly);
+
+        }
     }
 
 }
