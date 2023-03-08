@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -61,6 +62,12 @@ namespace TatBlog.services.Blogs
         {
             throw new NotImplementedException();
         }
+        //Tìm Tag có tên định danh là Slug
+        Task<Tag> GetTagBySlugAsync(string slug, CancellationToken cancellationToken = default);
+
+
+        //xóa
+        Task DeleteTagByIdAsync(int? id, CancellationToken cancellationToken = default);
     }
 
 }

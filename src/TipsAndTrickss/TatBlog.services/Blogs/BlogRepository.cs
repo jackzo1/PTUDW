@@ -126,6 +126,67 @@ namespace TatBlog.services.Blogs
             return await tagQuery
                 .ToPagedListAsync(pagingParams, cancellationToken);
         }
+        //Tìm Tag có tên định danh là slug
+        public async Task<Tag> GetTagSlugAsync(string slug,CancellationToken cancellationToken = default)
+        {
+            IQueryable<Tag> tagsQuery = _context.Set<Tag>();
+
+            tagsQuery = tagsQuery.Where(x => x.UrlSlug == slug);
+            return await tagsQuery.FirstOrDefaultAsync(cancellationToken);
+        }
+
+        //Xóa 1 tag theo mã cho trước
+        public async Task<Tag> RemoveTagAsync(int id,CancellationToken cancellationToken = default)
+        {
+            IQueryable<Tag> tagsQuery = _context.Set<Tag>();
+
+            tagsQuery = tagsQuery.OrderBy(x => x.Id == id);
+
+            return await tagsQuery.FirstOrDefaultAsync(cancellationToken);
+        }
+
+        //Tìm chuyên mục có tên định danh là slug
+        public async Task<Category> GetCategorySlugAsync(string slug,CancellationToken cancellationToken = default)
+        {
+            IQueryable<Category> tagsQuery = _context.Set<Category>();
+
+            tagsQuery = tagsQuery.Where(x => x.UrlSlug == slug);
+            return await tagsQuery.FirstOrDefaultAsync(cancellationToken);
+        }
+
+
+        //Tìm chuyên mục có mã số cho trước
+        //public async Task<Category> GetCategoryIdAsync( int id,CancellationToken cancellationToken = default)
+        //{
+        //    IQueryable<Category> tagsQuery = _context.Set<Category>();
+
+        //    tagsQuery = tagsQuery.Where(x => x.Id == id);
+        //    return await tagsQuery.FirstOrDefaultAsync(cancellationToken);
+        //}
+
+        //Tìm chuyên mục có mã số cho trước
+        public async Task<Post> GetPostsIdAsync(int id,CancellationToken cancellationToken = default)
+        {
+            IQueryable<Post> postsQuery = _context.Set<Post>();
+
+            postsQuery = postsQuery.Where(x => x.Id == id);
+            return await postsQuery.FirstOrDefaultAsync(cancellationToken);
+        }
+
+        //public Task<Tag> GetTagBySlugAsync(string slug, CancellationToken cancellationToken = default)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        public Task DeleteTagByIdAsync(int? id, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Tag> GetTagBySlugAsync(string slug, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

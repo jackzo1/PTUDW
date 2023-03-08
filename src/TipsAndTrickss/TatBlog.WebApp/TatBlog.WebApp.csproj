@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TatBlog.core\TatBlog.core.csproj" />
+    <ProjectReference Include="..\TatBlog.data\TatBlog.data.csproj" />
+    <ProjectReference Include="..\TatBlog.services\TatBlog.services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\Models\" />
+    <Folder Include="Properties\Components\" />
+    <Folder Include="Properties\Views\Shared\Components\" />
+    <Folder Include="Properties\wwwroot\" />
+  </ItemGroup>
+
+</Project>

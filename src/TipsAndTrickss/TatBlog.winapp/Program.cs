@@ -1,7 +1,9 @@
-﻿using TatBlog.data.Contexts;
+﻿using TatBlog.core.Entities;
+using TatBlog.data.Contexts;
 using TatBlog.data.Seeders;
 using TatBlog.services.Blogs;
 using TatBlog.winapp;
+
 
 internal class Program
 {
@@ -9,6 +11,24 @@ internal class Program
     {
 
         var context = new BlogDbContext();
+        IBlogRepository blogRepository = new BlogRepository(context);
+        var pagingParams = new PagingParams
+        {
+            PageSize = 5,
+            PageNumber = 1,
+            SortColumn = "Name",
+            SortOrder = "DESC"
+
+        };
+        var tagList = await blogRepository.GetPagedTagsAsync(pagingParams);
+        var categories = await blogRepository.GetCategoriesAsync();
+
+        Console.WriteLine("{0, -5}{1, -50}{2, 10}", "ID", "Name", "Count");
+
+        foreach (var item in categories)
+        {
+            Console.WriteLine("{0, -5}{1, -50}{2, 10}", item.Id, item.Name, item.PostCount);
+        }
 
 
         var seeder = new DataSeeder(context);
@@ -42,9 +62,31 @@ internal class Program
                            })
                            .ToList();
 
-
-
+        
    
+         var postss = await blogRepository.GetPopularArticleAsync(3);
+
+         foreach (var post in postss)
+        {
+            Console.WriteLine($"ID        : {post.Id}");
+            Console.WriteLine($"Title     : {post.Title}");
+            Console.WriteLine($"View      : {post.ViewCount}");
+            Console.WriteLine("Date       : {0:MM/dd/yyyy}", post.PostedDate);
+            Console.WriteLine($"Author    : {post.Author.FullName}");
+            Console.WriteLine($"Category  : {post.Category.Name}");
+            Console.WriteLine("".PadRight(80, '-'));
+        }
+
+        Console.WriteLine("\nTìm một thẻ (Tag) theo tên định danh (slug)");
+        var tagBySlug = await blogRepository.GetTagBySlugAsync("google");
+        Console.WriteLine("{0, -20}{1, -50}{2, 10}", "Name", "Description", "Slug");
+        Console.WriteLine("{0, -20}{1, -50}{2, 10}", tagBySlug.Name, tagBySlug.Description, tagBySlug.UrlSlug);
+        ////xóa
+      
+
+
+
+
 
     }
 }
