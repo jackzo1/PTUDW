@@ -13,10 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Properties\Models\" />
-    <Folder Include="Properties\Components\" />
-    <Folder Include="Properties\Views\Shared\Components\" />
-    <Folder Include="Properties\wwwroot\" />
+    <Folder Include="Models\" />
+    <Folder Include="wwwroot\fonts\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\templates\emails\" />
+    <Folder Include="wwwroot\uploads\pictures\" />
   </ItemGroup>
 
 </Project>

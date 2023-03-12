@@ -13,14 +13,11 @@ namespace TatBlog.services.Blogs
     public interface IBlogRepository
     {
 
-        public Task<Post> GetPostAsync(
-            int year,
-            int month,
-            string slug,
-            CancellationToken cancellationToken = default)
-        {
-            throw new NotImplementedException();
-        }
+        Task<IPagedList<Post>> GetPostAsync(
+            PostQuery condition,
+            int pageNumber = 1,
+            int pageSize = 10,
+            CancellationToken cancellationToken = default);
 
 
         public Task<IList<Post>> GetPopularArticleAsync(
