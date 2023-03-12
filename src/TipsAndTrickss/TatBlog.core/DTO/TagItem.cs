@@ -17,6 +17,7 @@ namespace TatBlog.core.DTO
         public string Description { get; set; }
 
         public int PostCount { get; set; }
+
     }
 
 
