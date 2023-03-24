@@ -2,6 +2,7 @@
 using TatBlog.data.Contexts;
 using TatBlog.data.Seeders;
 using TatBlog.services.Blogs;
+using TatBlog.Services.Blogs;
 using TatBlog.winapp;
 
 
@@ -16,7 +17,7 @@ internal class Program
         {
             PageSize = 5,
             PageNumber = 1,
-            SortColumn = "Name",
+            SortColumn = "Id",
             SortOrder = "DESC"
 
         };

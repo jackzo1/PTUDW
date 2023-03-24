@@ -8,83 +8,79 @@ using TatBlog.core.Contracts;
 
 namespace TatBlog.core.Collections
 {
-    public class PagedList<T> : IPagedList<T>
-    {
-        private readonly List<T> _subset = new();
+	public class PagedList<T> : IPagedList<T>
+	{
+		private readonly List<T> _subset = new();
 
-        public PagedList(
-            IList<T> items,
-            int pageNumber,
-            int pageSize,
-            int totalCount)
-        {
-            PageNumber = pageNumber;
-            PageSize = pageSize;
-            TotalItemCount = totalCount;
+		public PagedList(
+			IList<T> items,
+			int pageNumber,
+			int pageSize,
+			int totalCount)
+		{
+			PageNumber = pageNumber;
+			PageSize = pageSize;
+			TotalItemCount = totalCount;
 
-            _subset.AddRange(items);
-        }
+			_subset.AddRange(items);
+		}
 
-        public int PageIndex { get; set; }
+		public int PageIndex { get; set; }
+		public int PageSize { get; set; }
+		public int TotalItemCount { get; }
+		public int PageNumber
+		{
+			get => PageIndex + 1;
+			set => PageIndex = value - 1;
+		}
 
-        public int PageSize { get; set; }
+		public int PageCount
+		{
+			get
+			{
+				if (PageSize == 0)
+					return 0;
 
-        public int TotalItemCount { get; }
+				var total = TotalItemCount / PageSize;
 
-        public int PageNumber
-        {
-            get => PageIndex + 1;
-            set => PageIndex = value - 1;
-        }
+				if (TotalItemCount % PageSize > 0)
+					total++;
 
-        public int PageCount
-        {
-            get
-            {
-                if (PageSize == 0)
-                    return 0;
+				return total;
+			}
+		}
 
-                var total = TotalItemCount / PageSize;
+		public bool HasPreviousPage => PageIndex > 0;
 
-                if (TotalItemCount % PageSize > 0)
-                    total++;
+		public bool HasNextPage => (PageIndex < (PageCount - 1));
 
-                return total;
-            }
+		public int FirstItemIndex => (PageIndex * PageSize) + 1;
 
-        }
+		public int LastItemIndex
+			=> Math.Min(TotalItemCount, ((PageIndex * PageSize) + PageSize));
 
-        public bool HasPreviousPage => PageIndex > 0;
+		public bool IsFirstPage => (PageIndex <= 0);
 
-        public bool HasNextPage => (PageIndex < (PageIndex - 1));
+		public bool IsLastPage => (PageIndex >= (PageCount - 1));
 
-        public int FirstItemIndex => (PageIndex * PageSize) + 1;
+		#region IPagedList<T> Members
 
-        public int LastItemIndex
-            => Math.Min(TotalItemCount, ((PageIndex * PageSize) + PageSize));
+		public IEnumerator<T> GetEnumerator()
+		{
+			return _subset.GetEnumerator();
+		}
 
-        public bool IsFirstPage => PageIndex <= 0;
+		IEnumerator IEnumerable.GetEnumerator()
+		{
+			return GetEnumerator();
+		}
 
-        public bool IsLastPage => PageIndex >= (PageCount - 1);
+		public T this[int index] => _subset[index];
 
+		public virtual int Count => _subset.Count;
 
-        #region IPagedList<T> Members
+		#endregion
+	}
 
-        public IEnumerator<T> GetEnumerator()
-        {
-            return _subset.GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
-        public T this[int index] => _subset[index];
-
-        public virtual int Count => _subset.Count;
-
-        #endregion
-    }
 
 }

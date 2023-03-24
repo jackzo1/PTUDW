@@ -76,3 +76,4 @@ D:\newwwww\TipsAndTrickss\TatBlog.winapp\obj\Debug\net6.0\TatBlog.winapp.pdb
 D:\newwwww\TipsAndTrickss\TatBlog.winapp\obj\Debug\net6.0\TatBlog.winapp.genruntimeconfig.cache
 D:\newwwww\TipsAndTrickss\TatBlog.winapp\obj\Debug\net6.0\ref\TatBlog.winapp.dll
 D:\newwwww\TipsAndTrickss\TatBlog.winapp\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll
+D:\newwwww\TipsAndTrickss\TatBlog.winapp\bin\Debug\net6.0\SlugGenerator.dll

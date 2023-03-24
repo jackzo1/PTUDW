@@ -8,9 +8,9 @@ namespace TatBlog.core.DTO
 {
     public class PostQuery
     {
-        public int AuthorId { get; set; }
-        public string TitleSlug { get; set; }
-        public int CategoryId { get; set; }
+        public int? AuthorId { get; set; } 
+        public string TitleSlug { get; set; } 
+        public int? CategoryId { get; set; }
         public string TagSlug { get; set; }
         public string AuthorSlug { get; set; }
         public string CategorySlug { get; set; }
@@ -20,6 +20,5 @@ namespace TatBlog.core.DTO
         public bool PublishedOnly { get; set; }
         public bool NotPublished{ get; set; }
         public string KeyWord { get; set; }
-
     }
 }

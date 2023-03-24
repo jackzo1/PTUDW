@@ -1,4 +1,6 @@
-﻿namespace TatBlog.WebApp.Extensions
+﻿using TatBlog.WebApp.Areas;
+namespace TatBlog.WebApp.Extensions
+
 {
     public static class RouteExtensions
     {
@@ -19,13 +21,16 @@
               name: "blog-post-author",
               pattern: "blog/author/{slug}",
               defaults: new { controller = "Blog", action = "Author" });
-
+            ////////////
             endpoints.MapControllerRoute(
              name: "single-post",
              pattern: "blog/post/{year:int}/{month:int}/{day:int}/{slug}",
              defaults: new { controller = "Blog", action = "Post" });
 
-          
+            endpoints.MapControllerRoute(
+            name: "admin-area",
+            pattern: "admin/{controller=Dashboard}/{action=Index}/{id?}",
+            defaults: new { area = "Admin" });
 
             endpoints.MapControllerRoute(
               name: "default",
