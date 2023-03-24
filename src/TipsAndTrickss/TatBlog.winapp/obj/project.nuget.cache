@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3t5TnBCdjWkaBjs+5yxdMyCHZFVwBaJeD4qM3e+7QNelh2mlC/74PRmmJHRgEdJ3g5CBqE9LGpo1Ris+xbqHkg==",
+  "dgSpecHash": "/3lpNXobD3zJBOEH5AxbDkqdXMrzlYQHqzW3atS2cLp6JCYyqsjFvLYtSZK9uuYWMlikehxZGRb/U7IgDogNJg==",
   "success": true,
   "projectFilePath": "D:\\newwwww\\TipsAndTrickss\\TatBlog.winapp\\TatBlog.winapp.csproj",
   "expectedPackageFiles": [
@@ -42,6 +42,7 @@
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\sluggenerator\\2.0.2\\sluggenerator.2.0.2.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.configuration.configurationmanager\\5.0.0\\system.configuration.configurationmanager.5.0.0.nupkg.sha512",
