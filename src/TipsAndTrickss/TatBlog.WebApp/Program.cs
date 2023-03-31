@@ -7,14 +7,16 @@ using TatBlog.data.Seeders;
 using TatBlog.services.Blogs;
 using TatBlog.WebApp.Extensions;
 using TatBlog.WebApp.Mapsters;
+using TatBlog.WebApp.Validations;
 
 var builder = WebApplication.CreateBuilder(args);
 {
-    builder
-        .ConfigureMvc()
-        .ConfigureServices()
-        .ConfigureMapster();
-        
+	builder
+		.ConfigureMvc()
+		.ConfigureServices()
+		.ConfigureMapster()
+		.ConfigureFluentValidation();
+
 }
 
 var app = builder.Build();

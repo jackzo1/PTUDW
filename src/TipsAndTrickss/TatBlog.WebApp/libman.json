@@ -6,8 +6,8 @@
       "library": "jquery@3.6.0",
       "destination": "wwwroot/lib/jquery/",
       "files": [
-        "README.md",
         "LICENSE.txt",
+        "README.md",
         "dist/jquery.js",
         "dist/jquery.min.js",
         "dist/jquery.min.map",
@@ -163,15 +163,6 @@
         "fonts/fontawesome-webfont.woff",
         "fonts/fontawesome-webfont.woff2",
         "fonts/FontAwesome.otf"
-      ]
-    },
-    {
-      "library": "speakingurl@14.0.1",
-      "destination": "wwwroot/lib/speakingurl/",
-      "files": [
-        "speakingurl.min.js",
-        "README.md",
-        "LICENSE"
       ]
     }
   ]

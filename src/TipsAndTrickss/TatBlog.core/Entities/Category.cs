@@ -16,5 +16,4 @@ namespace TatBlog.core.Entities
         public bool ShowOnMenu { get; set; }
         public IList<Post> Posts { get; set; }
     }
-
 }

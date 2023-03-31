@@ -17,5 +17,4 @@ namespace TatBlog.core.Contracts
         string SortOrder { get; set; }
 
     }
-
 }

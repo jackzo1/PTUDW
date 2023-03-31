@@ -29,5 +29,4 @@ namespace TatBlog.data.Mappings
                 .IsRequired();
         }
     }
-
 }

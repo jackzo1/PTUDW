@@ -1,12 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TatBlog.core.Contracts;
-using TatBlog.core.DTO;
 using TatBlog.core.Entities;
+using TatBlog.core.DTO;
+using TatBlog.core.Contracts;
 
 namespace TatBlog.services.Blogs
 {
@@ -32,13 +31,8 @@ namespace TatBlog.services.Blogs
         public Task IncreaseViewCountAsync(
             int postId,
             CancellationToken cancellationToken = default);
-        public Task<IList<Author>> GetAuthorsAsync(
-            CancellationToken cancellationToken = default);
-        //public Task<IList<PostItem>> GetPagedPostsAsync(
-        //    PostQuery condition,
-        //    int pageNumber = 1,
-        //    int pageSize = 10,
-        //   CancellationToken cancellationToken = default);
+        //public Task<IList<Author>> GetAuthorsAsync(
+        //    CancellationToken cancellationToken = default);
         public Task<Category> GetCategoryByIdAsync(
             int id,
             CancellationToken cancellationToken = default);
@@ -62,10 +56,10 @@ namespace TatBlog.services.Blogs
             int id,
             CancellationToken cancellationToken = default);
         public Task<Tag> GetTagBySlugAsync(
-            string slug, 
+            string slug,
             CancellationToken cancellationToken = default);
         public Task<Tag> DeleteTagByIdAsync(
-            int? id, 
+            int? id,
             CancellationToken cancellationToken = default);
         public Task CreateOrUpdatePostAsync(
             object post,
@@ -77,6 +71,15 @@ namespace TatBlog.services.Blogs
             int id,
             string slug,
             CancellationToken cancellationToken = default);
+        public Task GetPostAsync(PostQuery postQuery);
+        Task<IList<Post>> GetFeaturedPostToTakeNumber(
+            int number, CancellationToken cancellationToken = default);
+        public Task<IDictionary<int, CountYear>>
+            GetAllMonthOfPosts(CancellationToken cancellationToken = default);
+        public Task<IList<Tag>>
+            GetAllTagAsync(CancellationToken CancellationToken = default);
+        public Task<IList<Post>> GetPostRandomsAsync(
+            int numPosts,
+            CancellationToken cancellationToken = default);
     }
-
 }

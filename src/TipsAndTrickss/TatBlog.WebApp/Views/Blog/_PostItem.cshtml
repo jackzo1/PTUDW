@@ -1,7 +1,9 @@
 ﻿@model Post
 
 @{
-    var imageUrl = string.IsNullOrWhiteSpace(Model.ImageUrl) ? "/images/image_hehe.png" : $"{Model.ImageUrl}";
+    var imageUrl = string.IsNullOrWhiteSpace(Model.ImageUrl) 
+    ? "/images/image_hehe.png"
+    : $"{Model.ImageUrl}";
 }
 
 <article class="blog-entry mb-4">
@@ -42,7 +44,6 @@
                     <div class="text-end">
                         <a asp-controller="=Blog"
                            asp-action="Post"
-                           asp-area=""
                            asp-route-year="@Model.PostedDate.Year"
                            asp-route-month="@Model.PostedDate.Month"
                            asp-route-day="@Model.PostedDate.Day"

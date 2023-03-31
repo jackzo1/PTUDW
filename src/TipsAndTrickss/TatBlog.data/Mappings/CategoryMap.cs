@@ -24,14 +24,13 @@ namespace TatBlog.data.Mappings
             builder.Property(p => p.Description)
                 .HasMaxLength(500);
 
-            builder.Property(a => a.UrlSlug)
+            builder.Property(p => p.UrlSlug)
                 .IsRequired()
                 .HasMaxLength(50);
 
-            builder.Property(a => a.ShowOnMenu)
+            builder.Property(p => p.ShowOnMenu)
                 .IsRequired()
                 .HasDefaultValue(false);
         }
     }
-
 }
