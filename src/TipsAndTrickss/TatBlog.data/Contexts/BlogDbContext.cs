@@ -19,17 +19,21 @@ namespace TatBlog.data.Contexts
         public BlogDbContext(DbContextOptions<BlogDbContext> options)
        : base(options) { }
 
-        public BlogDbContext()
-        {
-        }
+		public BlogDbContext()
+		{
+		}
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+		//protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+		//{
+		//    optionsBuilder.UseSqlServer("Server=LAPTOP-AF8DBRNT;Database=TatBlog;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=True");
+		//}
+		protected override void OnModelCreating(
+            ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(
                 typeof(CategoryMap).Assembly);
         }
 
-       
-    }
 
+    }
 }

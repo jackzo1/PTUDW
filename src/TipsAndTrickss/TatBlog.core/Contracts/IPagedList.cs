@@ -38,5 +38,4 @@ namespace TatBlog.core.Contracts
 
         int Count { get; }
     }
-
 }

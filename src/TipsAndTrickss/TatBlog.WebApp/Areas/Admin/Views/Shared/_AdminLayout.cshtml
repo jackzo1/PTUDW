@@ -1,4 +1,5 @@
-﻿﻿<!DOCTYPE html>
+﻿﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
@@ -13,7 +14,7 @@
 	<!-- Thanh tiểu đề, logo, menu -->
 	<partial name="_NavBar" />
 	<div class="container-fluid">
-	<!-- Phần nội dung chính -->
+		<!-- Phần nội dung chính -->
 		@RenderBody()
 	</div>
 	<footer class="border-top footer text-muted">
@@ -25,5 +26,5 @@
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="~/js/main.js" asp-append-version="true"></script>
 	@await RenderSectionAsync("scripts", required: false)
-</body> 
+</body>
 </html>

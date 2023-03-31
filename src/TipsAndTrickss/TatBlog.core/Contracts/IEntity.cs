@@ -10,5 +10,4 @@ namespace TatBlog.core.Contracts
     {
         int Id { get; set; }
     }
-
 }

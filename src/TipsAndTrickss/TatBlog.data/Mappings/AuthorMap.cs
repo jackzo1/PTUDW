@@ -38,5 +38,4 @@ namespace TatBlog.data.Mappings
                 .HasMaxLength(500);
         }
     }
-
 }

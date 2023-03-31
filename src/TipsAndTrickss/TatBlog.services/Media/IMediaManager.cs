@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace TatBlog.services.Media
 {
-    internal interface IMediaManager
-    {
-        Task<string> SaveFileAsync(
-            Stream buffer,
-            string originalFileName,
-            string contentType,
-            CancellationToken cancellationToken = default);
-        Task<bool> DeleteFileAsync(
-            string filePath,
-            CancellationToken cancellationToken = default);
-    }
-
+	public interface IMediaManager
+	{
+		Task<string> SaveFileAsync(
+			Stream buffer,
+			string originalFileName,
+			string contentType,
+			CancellationToken cancellationToken = default);
+		Task<bool> DeleteFileAsync(
+			string filePath,
+			CancellationToken cancellationToken = default);
+	}
 }

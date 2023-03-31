@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TatBlog.core.Contracts;
 
-namespace TatBlog.winapp
+namespace TatBlog.WinApp
 {
     public class PagingParams : IPagingParams
     {
@@ -14,5 +14,4 @@ namespace TatBlog.winapp
         public string SortColumn { get; set; } = "Id";
         public string SortOrder { get; set; } = "DESC";
     }
-
 }
