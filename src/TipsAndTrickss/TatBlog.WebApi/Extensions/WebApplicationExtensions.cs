@@ -45,10 +45,11 @@ namespace TatBlog.WebApi.Extensions
 		}
 
 
-		// cấu hình việc sử dụng NLog 1 reference 10 changes 10 authors, O changes
+		// cấu hình việc sử dụng NLog
 		public static WebApplicationBuilder ConfigureNLog(this WebApplicationBuilder builder)
 		{
-			builder.Logging.ClearProviders(); builder.Host.UseNLog();
+			builder.Logging.ClearProviders();
+			builder.Host.UseNLog();
 			return builder;
 		}
 		public static WebApplicationBuilder ConfigureSwaggerOpenApi(

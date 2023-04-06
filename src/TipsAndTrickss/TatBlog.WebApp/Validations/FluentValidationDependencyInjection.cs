@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Builder;
 
 namespace TatBlog.WebApp.Validations
 {

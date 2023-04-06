@@ -21,6 +21,10 @@ namespace TatBlog.services.Blogs
            int pageNumber = 1,
            int pageSize = 10,
            CancellationToken cancellationToken = default);
+        Task<IPagedList<T>> GetPagedPostsAsync<T>(
+            PostQuery condition,
+            IPagingParams pagingParams,
+            Func<IQueryable<Post>, IQueryable<T>> mapper);
         public Task<IList<Post>> GetPopularArticleAsync(
             int numPosts,
             CancellationToken cancellationToken = default);
