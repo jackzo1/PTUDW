@@ -1,4 +1,9 @@
-﻿namespace TatBlog.WebApp.Middlewares
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Threading.Tasks;
+
+namespace TatBlog.WebApp.Middlewares
 {
     public class UserActivityMiddleware
     {

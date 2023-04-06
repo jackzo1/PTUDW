@@ -1,4 +1,9 @@
 ﻿using FluentValidation;
+using Microsoft.AspNetCore.Http;
+using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using TatBlog.services.Blogs;
 using TatBlog.WebApp.Areas.Admin.Models;
 
@@ -59,11 +64,15 @@ namespace TatBlog.WebApp.Validations
                 .Must(f => f is { Length: > 0 })
                 .WithMessage("Bạn phải chọn hình ảnh cho bài viết");
             })
-            .Otherwise(() => {
-                RuleFor(p => p.ImageFile)
-        .MustAsync(SetImageIfNotExist)
-        .WithMessage("Bạn phải chọn hình ảnh cho bài viết");
+            .Otherwise(() => {RuleFor(p => p.ImageFile)
+                .MustAsync(SetImageIfNotExist)
+                .WithMessage("Bạn phải chọn hình ảnh cho bài viết");
             });
+        }
+
+        private Task<bool> SetImageIfNotExist(IFormFile arg1, CancellationToken arg2)
+        {
+            throw new NotImplementedException();
         }
 
         // Kiểm tra xem người dùng đã nhập ít nhất 1 thẻ (tag)

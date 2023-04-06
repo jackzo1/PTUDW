@@ -2,11 +2,14 @@
 using Microsoft.AspNetCore.Http;
 using MySqlX.XDevAPI.Common;
 using System;
+using FluentValidation.Results;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-//using System.ComponentModel.DataAnnotations;
+
+using System.Linq;
 using System.Net;
+using TatBlog.WebApi.Extensions;
+
 
 namespace TatBlog.WebApi.Models
 {
@@ -26,8 +29,8 @@ namespace TatBlog.WebApi.Models
 		{
 			return new ApiResponse<T>
 			{
-    //            Result result,
-				//StatusCode = statusCode
+                Result = result,
+				StatusCode = statusCode
 			};
 		}
 		public static ApiResponse <T> FailWithResult<T>(
@@ -46,8 +49,6 @@ namespace TatBlog.WebApi.Models
 			HttpStatusCode statusCode,
 			params string[] errorMessages)
 		{
-
-
 			if (errorMessages == null || errorMessages.Length == 0)
 			{
 				throw new ArgumentNullException(nameof(errorMessages));
@@ -59,18 +60,16 @@ namespace TatBlog.WebApi.Models
 				Errors = new List<string>(errorMessages)
 			};
 		}
-
-
-		//public static ApiResponse Fail(
-		//HttpStatusCode statusCode, 
-		//ValidationResult validationResult)
-		//{
-		//	return Fail(statusCode, validationResult.Errors
-		//	.Select(x => x.ErrorMessage)
-  //          .Where(e => !string.IsNullOrWhiteSpace(e))
-		//	.ToArray());
-		//}
-    }
+		public static ApiResponse Fail(
+			HttpStatusCode statusCode,
+			ValidationResult validationResult)
+		{
+			return Fail(statusCode,validationResult.Errors
+                .Select(x => x.ErrorMessage)
+				.Where(e => !string.IsNullOrWhiteSpace(e))
+				.ToArray());
+		}
+	}
 	public class ApiResponse<T> : ApiResponse
 	{
 		public T? Result { get; set; }

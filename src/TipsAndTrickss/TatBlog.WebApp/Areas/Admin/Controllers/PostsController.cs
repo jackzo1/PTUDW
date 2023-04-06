@@ -1,6 +1,7 @@
 ﻿using MapsterMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +19,20 @@ namespace TatBlog.WebApp.Areas.Admin.Controllers
 	public class PostsController : Controller
 	{
 		private readonly IBlogRepository _blogRepository;
+		private readonly ILogger<PostsController> _logger;
 		private readonly IAuthorRepository _authorRepository;
 		private readonly IMediaManager _mediaManager;
 		private readonly IMapper _mapper;
-		public PostsController(IBlogRepository blogRepository,IAuthorRepository authorRepository, IMapper mapper, IMediaManager mediaManager)
+		public PostsController(
+			IBlogRepository blogRepository,
+			IAuthorRepository authorRepository,
+			IMapper mapper,
+            ILogger<PostsController> logger,
+
+            IMediaManager mediaManager)
 		{
 			_blogRepository = blogRepository;
+			_logger = logger;
 			_authorRepository = authorRepository;
 			_mapper = mapper;
 			_mediaManager = mediaManager;
@@ -88,8 +97,8 @@ namespace TatBlog.WebApp.Areas.Admin.Controllers
 			var publishedlist = new List<bool>() { true, false };
 			//model.PublishedList = publishedlist.Select(a => new SelectListItem()
 			//{
-			//    Text = a.ToString(),
-			//    Value = a.ToString(),
+			//	Text = a.ToString(),
+			//	Value = a.ToString(),
 			//});
 			model.AuthorList = authors.Select(a => new SelectListItem()
 			{
